@@ -1,0 +1,6 @@
+# Phase 0 — web framework foundations.
+# Data (yfinance, pandas), signals (pandas-ta), and AI (claude-agent-sdk)
+# dependencies are added in their respective phases.
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30,<1.0
+pydantic-settings>=2.4,<3.0
