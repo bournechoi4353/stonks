@@ -1,6 +1,14 @@
 # Phase 0 — web framework foundations.
-# Data (yfinance, pandas), signals (pandas-ta), and AI (claude-agent-sdk)
-# dependencies are added in their respective phases.
 fastapi>=0.115,<1.0
 uvicorn[standard]>=0.30,<1.0
 pydantic-settings>=2.4,<3.0
+
+# Phase 1 — market data layer (Yahoo Finance).
+yfinance>=0.2.40,<1.0
+pandas>=2.0,<3.0
+cachetools>=5.3,<6.0
+
+# Phase 2 — signals engine computes indicators directly with pandas/numpy (above).
+
+# Phase 3 — AI reasoning layer (uses the Claude Code subscription via the CLI; no API key).
+claude-agent-sdk>=0.2.80,<1.0

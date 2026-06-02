@@ -43,7 +43,7 @@ context into the final recommendation and its written reasoning.
 React + TS (Vite)  ──HTTP──>  FastAPI
   dashboard, charts,            │
   watchlist, rec cards          ├── data layer      → yfinance (prices, fundamentals, news)
-                                ├── signals engine  → pandas / pandas-ta (RSI, MACD, SMA/EMA, momentum…)
+                                ├── signals engine  → pandas / numpy (RSI, MACD, SMA/EMA, momentum…)
                                 ├── AI layer        → Claude Agent SDK (news sentiment + synthesis)
                                 └── storage         → SQLite (watchlist + recommendation history)
 ```
@@ -61,14 +61,14 @@ The recommendation pipeline for a ticker:
 
 | Phase | Goal | Key deliverables | Est. effort | Status |
 |---|---|---|---|---|
-| **0 — Foundations** | Scaffold that runs end-to-end | Repo structure, FastAPI server, React app, env config, health/"hello" call wired front→back | ~1 session | 🚧 In progress |
-| **1 — Market data layer** | Pull everything from Yahoo | `yfinance` integration: quote, history, fundamentals, news; response caching | ~1 session | ⬜ |
-| **2 — Signals engine** | Raw data → quantitative signals | RSI, MACD, SMA/EMA crossovers, momentum, volume trend, 52-week range → signal sheet | ~1–2 sessions | ⬜ |
-| **3 — AI reasoning layer** | Claude reads news + signals | Claude Agent SDK adapter; news sentiment summary; structured rec (action, conviction, reasoning, risks, horizon) | ~1–2 sessions | ⬜ |
-| **4 — Recommendation API** | Clean endpoints | `/recommend/{ticker}` (combines 1–3) and `/watchlist` batch scoring | ~1 session | ⬜ |
-| **5 — Frontend dashboard** | The usable UI | Ticker search + watchlist, interactive price chart, news feed, recommendation card, disclaimer | ~2 sessions | ⬜ |
-| **6 — Recommendation history** | Track if picks were good | Store each rec + price; show how each call would've performed since | ~1 session | ⬜ |
-| **7 — Polish & run** | Pleasant + persistent | Loading/error states, refresh scheduling, run locally; optional deploy | ~1 session | ⬜ |
+| **0 — Foundations** | Scaffold that runs end-to-end | Repo structure, FastAPI server, React app, env config, health/"hello" call wired front→back | ~1 session | ✅ Done |
+| **1 — Market data layer** | Pull everything from Yahoo | `yfinance` integration: quote, history, fundamentals, news; response caching | ~1 session | ✅ Done |
+| **2 — Signals engine** | Raw data → quantitative signals | RSI, MACD, SMA/EMA crossovers, momentum, volume trend, 52-week range → signal sheet | ~1–2 sessions | ✅ Done |
+| **3 — AI reasoning layer** | Claude reads news + signals | Claude Agent SDK adapter; news sentiment + structured rec (action, conviction, reasoning, risks, horizon); 30-min cache | ~1–2 sessions | ✅ Done |
+| **4 — Recommendation API** | Clean endpoints | `/recommend/{ticker}` (combines 1–3) and `/watchlist` batch scoring | ~1 session | ✅ Done |
+| **5 — Frontend dashboard** | The usable UI | Ticker search + watchlist, interactive price chart, news feed, recommendation card, disclaimer | ~2 sessions | ✅ Done |
+| **6 — Recommendation history** | Track if picks were good | Store each rec + price; show how each call would've performed since | ~1 session | ✅ Done |
+| **7 — Polish & run** | Pleasant + persistent | Loading/error states, refresh scheduling, run locally; optional deploy | ~1 session | 🚧 Next |
 
 **Rough total:** ~9–11 focused build sessions. Phases 0–5 deliver a fully working
 recommender; 6–7 are quality-of-life.

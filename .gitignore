@@ -18,10 +18,11 @@ dist-ssr/
 *.log
 npm-debug.log*
 
-# SQLite (local data)
+# SQLite + local app state (watchlist, history)
 *.sqlite
 *.sqlite3
 *.db
+backend/data/
 
 # OS / editor
 .DS_Store

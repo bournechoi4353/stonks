@@ -11,7 +11,7 @@ See [TIMELINE.md](TIMELINE.md) for the full plan, decisions, and phase status.
 - **Backend:** FastAPI (Python 3.12)
 - **Frontend:** React + TypeScript (Vite)
 - **Data:** Yahoo Finance via `yfinance`
-- **Signals:** pandas / pandas-ta
+- **Signals:** pandas / numpy (indicators computed directly)
 - **AI reasoning:** Claude Agent SDK (uses the Claude Code subscription — no API key needed)
 - **Storage:** SQLite
 
